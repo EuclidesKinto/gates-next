@@ -5,11 +5,11 @@ import { atualizarPortas, criarPortas } from "../../../functions/portas";
 import Link from "next/link"
 import { useRouter } from "next/router"
 
-export default function jogo(){
+export default function Jogo(){
   const router = useRouter()
 
   const [valido, setValido] = useState(false)
-  const [portas, setPortas] = useState(criarPortas([]))
+  const [portas, setPortas] = useState([])
 
   useEffect(() => {
     const portas = +router.query.portas
@@ -42,7 +42,7 @@ export default function jogo(){
             { valido ? renderizarPortas() : <h1>Valores Inválidos</h1>}
         </div>
         <div className={styles.botoes}>
-            <Link href="/" >
+            <Link href="/" passHref>
                 <button>Reniciar Jogo</button>
             </Link>
         </div>
